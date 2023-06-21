@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Tailwind CSS -->
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Input Field and Button</title>
+    <style>
+        .box {
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        input[type="text"],
+        textarea {
+            background-color: #55AD5C;
+        }
+
+        input::placeholder {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+
+<body style="background-color: #EBEAEA">
+    <div class="box flex flex-col">
+        <div >
+            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+                LinkedIn Profile Scraper
+            </h1>
+        </div>
+
+        <div class="mb-4" style="width: 60%">
+            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-3xl"
+                placeholder="Enter URL of LinkedIn Profile">
+        </div>
+
+        <div>
+            <a href="output.html" class="self-center">
+                <button class="px-6 py-2 bg-white text-black rounded-3xl"><strong>Submit</strong></button>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

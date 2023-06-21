@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Output</title>
+    <style>
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body style="background-color: #EBEAEA">
+    <div class="box" id="profile">
+    </div>
+</body>
+
+<script>
+    // Fetch data from the backend URL
+    fetch('http://localhost:3001/profile')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Get the data container element
+            const dataContainer = document.getElementById('profile');
+
+            // Create an unordered list
+            const list = document.createElement('ul');
+
+            // Iterate over the data and create list items for each key-value pair
+            for (const key in data) {
+                const listItem = document.createElement('li');
+                listItem.classList.add("text-4xl");
+                listItem.style.marginBottom = '8px';
+                listItem.innerHTML = `<span>${key}:</span> ${data[key]}`;
+                list.appendChild(listItem);
+            }
+
+            // Append the list to the data container
+            dataContainer.appendChild(list);
+        })
+        .catch(error => {
+            console.log('Error fetching data:', error);
+        });
+</script>
+
+</html>
